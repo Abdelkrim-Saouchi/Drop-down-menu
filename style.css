@@ -9,7 +9,6 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto auto 1fr;
-  position: relative;
 }
 
 header {
@@ -28,56 +27,52 @@ nav ul {
   gap: 24px;
 }
 
-ul li {
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 300ms ease-in-out;
+nav ul li {
+  position: relative;
+  padding: 8px;
 }
 
 ul li:hover {
+  cursor: pointer;
   color: blueviolet;
+  background-color: whitesmoke;
 }
 
-.faculty-menu {
-  padding: 8px;
-  background-color: #fff;
-  width: fit-content;
-  position: absolute;
-  top: 10%;
-  left: 40%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-  visibility: visible;
-
-  transform-origin: top;
-  transform: scaleY(0);
-  transition: all 300ms ease-in-out;
-}
-
-.faculty-menu .f-menu {
-  list-style: none;
-  padding: 0;
+ul.drop-down-menu {
+  padding: 12px;
   font-size: small;
-  display: flex;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: non;
   flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: all 500ms ease-in-out;
 }
 
-.f-menu li {
-  padding: 8px;
-  color: #6b7c93;
-  border-bottom: 1px solid #6b7c93;
+ul.drop-down-menu li {
+  position: relative;
 }
 
-.f-menu li:last-child {
-  border-bottom: 0;
+ul.medecine {
+  top: 0;
+  left: -216%;
 }
 
-.visible {
-  visibility: visible;
-  transform: scaleY(1.1);
+ul.pharmacy {
+  top: 0;
+  left: -220%;
 }
 
-main {
-  text-align: center;
+ul.dental {
+  top: 0;
+  left: -233%;
+}
+
+ul.main-bar li:hover > ul.drop-down-menu {
+  display: flex;
+  transform: scaleY(1);
 }
