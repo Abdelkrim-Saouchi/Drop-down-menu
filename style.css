@@ -32,23 +32,26 @@ nav ul li {
   padding: 8px;
 }
 
-ul li:hover {
+ul li:hover,
+ul li.active,
+ul li.active-sub {
   cursor: pointer;
   color: blueviolet;
   background-color: whitesmoke;
 }
 
-ul.drop-down-menu {
+.drop-down-menu,
+.drop-down-sub-menu {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
   padding: 12px;
   font-size: small;
   position: absolute;
-  top: 110%;
+  top: 105%;
   left: 0;
-  display: non;
-  flex-direction: column;
-  gap: 12px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  transform: scaleY(0);
+
   transform-origin: top center;
   transition: all 500ms ease-in-out;
 }
@@ -72,7 +75,10 @@ ul.dental {
   left: -233%;
 }
 
-ul.main-bar li:hover > ul.drop-down-menu {
+li.active > .drop-down-menu {
   display: flex;
-  transform: scaleY(1);
+}
+
+.drop-down-menu li.active-sub > .drop-down-sub-menu {
+  display: flex;
 }
